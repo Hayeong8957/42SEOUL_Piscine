@@ -6,7 +6,7 @@
 /*   By: hashin <hashin@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:22:56 by hashin            #+#    #+#             */
-/*   Updated: 2021/10/11 11:24:25 by hashin           ###   ########.fr       */
+/*   Updated: 2021/10/16 21:49:37 by hashin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_print_comb(void)
 			while (third <= '9')
 			{
 				ft_print_int(first, second, third);
-				if (first != '7' || second != '8' || third != '9')
+				if (first != '7')
 				{
 					write(1, ",", 1);
 					write(1, " ", 1);
