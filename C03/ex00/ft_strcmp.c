@@ -6,19 +6,24 @@
 /*   By: id <id@student.42seoul.kr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 12:24:28 by id                #+#    #+#             */
-/*   Updated: 2021/10/19 12:39:50 by id               ###   ########.fr       */
+/*   Updated: 2021/10/19 13:57:12 by id               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	while (*s1 != '\0' && *s2 != '\0' && (*s1 == *s2))
+	int	i;
+	int	result;
+
+	i = 0;
+	while (s1[i] || s2[i])
 	{
-		s1++;
-		s2++;
+		if (s1[i] != s2[i])
+		{
+			result = s1[i] - s2[i];
+			return (result);
+		}
+		i++;
 	}
-	if (*s1 == *s2)
-		return (0 );
-	else
-		return (*s1 - *s2);
+	return (0 );
 }
