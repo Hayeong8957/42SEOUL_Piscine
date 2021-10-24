@@ -6,7 +6,7 @@
 /*   By: hashin <hashin@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 09:51:19 by hashin            #+#    #+#             */
-/*   Updated: 2021/10/23 11:02:52 by hashin           ###   ########.fr       */
+/*   Updated: 2021/10/24 22:10:22 by id               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,39 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
 int	check_base(char *base)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
-	if (base[0] == '\0' || base[1] == '\0')
+	if (base == 0 || ft_strlen(base) <= 1)
 		return (0);
-	while (base[i])
+	while (base[i] != '\0')
 	{
 		if (base[i] == '+' || base[i] == '-')
 			return (0);
 		if (base[i] >= 9 && base[i] <= 13)
 			return (0);
+		i++;
+	}
+	i = 0;
+	while (base[i] != '\0')
+	{
 		j = i + 1;
 		while (base[j])
-		{
-			if (base[i] == base[j])
+			if (base[i] == base[j++])
 				return(0);
-			j++;
-		}
 		i++;
 	}
 	return (1);
@@ -73,10 +85,11 @@ int main(void)
 	int i2 = 2;
 	int i3 = 11;
 	int i4 = 15;
-	char *c;
+	char *c, *d, *e;
 	c = "0123456789abcdef";
-	ft_putnbr_base(i , c);
-	ft_putnbr_base(i2, c);
-	ft_putnbr_base(i3, c);
-	ft_putnbr_base(i4, c);	
+	d = "12";
+	e = "";
+	
+	ft_putnbr_base(i, d);
+	ft_putnbr_base(i2, e);	
 }
