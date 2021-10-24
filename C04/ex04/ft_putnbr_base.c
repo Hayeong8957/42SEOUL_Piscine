@@ -6,7 +6,7 @@
 /*   By: hashin <hashin@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 09:51:19 by hashin            #+#    #+#             */
-/*   Updated: 2021/10/24 22:10:22 by id               ###   ########.fr       */
+/*   Updated: 2021/10/25 00:49:53 by id               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_base(char *base)
 	int	j;
 
 	i = 0;
-	if (base == 0 || ft_strlen(base) <= 1)
+	if (base[0] == '\0' || ft_strlen(base) <= 1)
 		return (0);
 	while (base[i] != '\0')
 	{
@@ -57,39 +57,33 @@ int	check_base(char *base)
 
 void	ft_putnbr_base (int nbr, char *base)
 {
+	long	c_nbr;
 	int	base_size;
 
+	c_nbr = nbr;
 	base_size = 0;
 	if (check_base(base) == 1)
 	{
 		while (base[base_size] != '\0')
 			base_size++;
-		if (nbr < 0)
+		if (c_nbr < 0)
 		{
 			ft_putchar('-');
-			nbr = -nbr;
+			c_nbr = c_nbr * -1;
 		}
-		if (nbr >= base_size)
+		if (c_nbr >= base_size)
 		{
-			ft_putnbr_base(nbr / base_size, base);
-			ft_putnbr_base(nbr % base_size, base);
+			ft_putnbr_base(c_nbr / base_size, base);
+			ft_putnbr_base(c_nbr % base_size, base);
 		}
-		else if(nbr < base_size)
-			ft_putchar(base[nbr]);
+		else if(c_nbr < base_size)
+			ft_putchar(base[c_nbr]);
 	}
 }
 
 int main(void)
 {
-	int i = 1;
-	int i2 = 2;
-	int i3 = 11;
-	int i4 = 15;
-	char *c, *d, *e;
-	c = "0123456789abcdef";
-	d = "12";
-	e = "";
 	
-	ft_putnbr_base(i, d);
-	ft_putnbr_base(i2, e);	
+	ft_putnbr_base(-2147483648, "0123456789");
+		
 }
