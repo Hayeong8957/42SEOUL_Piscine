@@ -6,7 +6,7 @@
 /*   By: hashin <hashin@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 09:51:19 by hashin            #+#    #+#             */
-/*   Updated: 2021/10/25 00:49:53 by id               ###   ########.fr       */
+/*   Updated: 2021/10/25 01:15:49 by id               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	check_base(char *base)
 void	ft_putnbr_base (int nbr, char *base)
 {
 	long	c_nbr;
-	int	base_size;
+	long	base_size;
 
 	c_nbr = nbr;
 	base_size = 0;
